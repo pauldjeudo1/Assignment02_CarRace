@@ -18,7 +18,7 @@
 
          <!-- ================= TRACK (900 x 300) ================= -->
          <center>
-            <Pane fx:id="trackPane" prefHeight="314.0" prefWidth="900.0" style="-fx-background-color: #2b3035;">
+            <Pane fx:id="trackPane" prefHeight="300.0" prefWidth="900.0" style="-fx-background-color: #2b3035;">
                <children>
                   <Label fx:id="startZone" alignment="CENTER" layoutX="-124.0" layoutY="124.0" prefHeight="51.0" prefWidth="301.0" rotate="270.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="S  T  A  R  T  I  N  G" textAlignment="CENTER" />
 
@@ -73,11 +73,16 @@
                   <!-- Message panel (bottom-right) -->
                   <HBox fx:id="messagePanel" spacing="12.0" style="-fx-background-color: #e3f0fc; -fx-background-radius: 8; -fx-border-color: #b7cbe3; -fx-border-radius: 8; -fx-padding: 16;" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label style="-fx-font-size: 34px;" text="🏁" />
-                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                        <VBox alignment="CENTER" prefHeight="122.0" prefWidth="426.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label fx:id="messageTitle" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0d47a1;" text="Ready to race!" />
-                              <Label fx:id="messageBody" style="-fx-text-fill: #1a2a44;" text="Press Start to begin." wrapText="true" />
+                              <Label fx:id="messageTitle" alignment="CENTER" prefHeight="66.0" prefWidth="421.0" style="-fx-font-weight: bold; -fx-text-fill: #0d47a1;" text="🏁  Ready to race!" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font></Label>
+                              <Label fx:id="messageBody" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="174.0" style="-fx-text-fill: #1a2a44;" text="Press Start to begin." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
                               <!-- Final results rows get added here by the controller -->
                               <VBox fx:id="resultsBox" spacing="4.0" />
                            </children>

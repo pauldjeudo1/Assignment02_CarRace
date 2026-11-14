@@ -42,13 +42,16 @@ public class CarNode extends Group {
         this.car = car;
         Color color = Color.web(car.getColorHex());
 
-        Polygon body = new Polygon(0, 30, 10, 18, 110, 18, 120, 30, 120, 42, 0, 42);
+        Polygon body = new Polygon(0, 30, 10, 18, 
+                110, 18, 120, 30, 120, 
+                42, 0, 42);
         body.setFill(color);
-        Polygon roof = new Polygon(30, 18, 45, 2, 85, 2, 100, 18);
+        Polygon roof = new Polygon(15, 18, 30, 2,
+                70, 2, 90, 18);
         roof.setFill(color.darker());
 
-        Rectangle window1 = new Rectangle(47, 5, 16, 11);
-        Rectangle window2 = new Rectangle(67, 5, 16, 11);
+        Rectangle window1 = new Rectangle(32, 5, 16, 11);
+        Rectangle window2 = new Rectangle(52, 5, 16, 11);
         window1.setFill(Color.LIGHTSKYBLUE);
         window2.setFill(Color.LIGHTSKYBLUE);
 
