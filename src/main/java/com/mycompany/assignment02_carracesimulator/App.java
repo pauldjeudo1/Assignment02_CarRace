@@ -17,12 +17,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        CarRaceModel model = new CarRaceModel();
-        CarNode node = new CarNode(model.getCars().get(0));
-        node.setLayoutX(50);
-        node.setLayoutY(50);
-        node.startSpin();
-        stage.setScene(new Scene(new Pane(node), 300, 200));
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("CarRace.fxml"));
+        Scene scene = new Scene(loader.load());
+        stage.setTitle("Car Race Simulation");
+        stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

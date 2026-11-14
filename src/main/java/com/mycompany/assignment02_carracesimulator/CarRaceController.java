@@ -31,7 +31,7 @@ public class CarRaceController {
     @FXML private Label messageBody;
     @FXML private VBox resultsBox;
     @FXML private Pane trackPane;
-    @FXML private Label arrivalZone1;
+    @FXML private Label startZone;
     @FXML private Label arrivalZone;
 
     @FXML

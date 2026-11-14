@@ -20,7 +20,7 @@
          <center>
             <Pane fx:id="trackPane" prefHeight="314.0" prefWidth="900.0" style="-fx-background-color: #2b3035;">
                <children>
-                  <Label fx:id="arrivalZone1" alignment="CENTER" layoutX="-124.0" layoutY="124.0" prefHeight="51.0" prefWidth="301.0" rotate="270.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="S  T  A  R  T  I  N  G" textAlignment="CENTER" />
+                  <Label fx:id="startZone" alignment="CENTER" layoutX="-124.0" layoutY="124.0" prefHeight="51.0" prefWidth="301.0" rotate="270.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="S  T  A  R  T  I  N  G" textAlignment="CENTER" />
 
                   <!-- ARRIVAL zone -->
                   <Label fx:id="arrivalZone" alignment="CENTER" layoutX="723.0" layoutY="124.0" prefHeight="51.0" prefWidth="301.0" rotate="90.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="A   R   R   I   V   A   L" textAlignment="CENTER" />
