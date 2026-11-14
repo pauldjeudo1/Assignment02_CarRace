@@ -82,7 +82,7 @@ public class CarRaceModel {
     }
 
     /**
-     * @return true if the race is finished (finishOrder contains all the cars,
+     * @return true if the race is finished (finishOrder contains all the cars),
      * false if otherwise
      */
     public boolean isRaceFinished() {

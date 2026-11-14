@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02_carracesimulator.CarRaceController">
+   <children>
+      <BorderPane fx:id="racePane" prefHeight="480.0" prefWidth="900.0" style="-fx-background-color: #eef3f9;">
+
+         <!-- ================= TRACK (900 x 300) ================= -->
+         <center>
+            <Pane fx:id="trackPane" prefHeight="314.0" prefWidth="900.0" style="-fx-background-color: #2b3035;">
+               <children>
+                  <Label fx:id="arrivalZone1" alignment="CENTER" layoutX="-124.0" layoutY="124.0" prefHeight="51.0" prefWidth="301.0" rotate="270.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="S  T  A  R  T  I  N  G" textAlignment="CENTER" />
+
+                  <!-- ARRIVAL zone -->
+                  <Label fx:id="arrivalZone" alignment="CENTER" layoutX="723.0" layoutY="124.0" prefHeight="51.0" prefWidth="301.0" rotate="90.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="A   R   R   I   V   A   L" textAlignment="CENTER" />
+
+                  <!-- Lane dividers (4 lanes x 75 px) -->
+                  <Line endX="790.0" layoutX="55.0" layoutY="75.0" stroke="WHITE" strokeWidth="2.0" style="-fx-stroke-dash-array: 14 14;" />
+                  <Line endX="790.0" layoutX="55.0" layoutY="150.0" stroke="WHITE" strokeWidth="2.0" style="-fx-stroke-dash-array: 14 14;" />
+                  <Line endX="790.0" layoutX="55.0" layoutY="225.0" stroke="WHITE" strokeWidth="2.0" style="-fx-stroke-dash-array: 14 14;" />
+               </children>
+            </Pane>
+         </center>
+
+         <!-- ================= BOTTOM: CONTROLS + MESSAGES ================= -->
+         <bottom>
+            <HBox prefHeight="179.0" prefWidth="900.0" spacing="15.0">
+               <padding>
+                  <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+               </padding>
+               <children>
+
+                  <!-- Controls panel (bottom-left) -->
+                  <VBox alignment="CENTER_LEFT" prefWidth="400.0" spacing="22.0" style="-fx-background-color: #e6eef8; -fx-background-radius: 8; -fx-border-color: #b7cbe3; -fx-border-radius: 8; -fx-padding: 16;">
+                     <children>
+                        <HBox spacing="12.0">
+                           <children>
+                              <Button fx:id="startButton" maxHeight="38.0" maxWidth="110.0" onAction="#onStart" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="▶  Start">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></Button>
+                              <Button fx:id="pauseButton" maxHeight="38.0" maxWidth="110.0" onAction="#onPause" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #1565c0; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="❚❚ Pause">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></Button>
+                              <Button fx:id="resetButton" maxHeight="38.0" maxWidth="110.0" onAction="#onReset" prefHeight="38.0" prefWidth="110.0" style="-fx-background-color: #d32f2f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="↻  Reset">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label style="-fx-font-weight: bold; -fx-text-fill: #1a2a44;" text="Simulation Speed:" />
+                              <Slider fx:id="speedSlider" max="3.0" min="0.5" prefWidth="170.0" value="1.0" HBox.hgrow="ALWAYS" />
+                              <Label fx:id="speedLabel" style="-fx-font-weight: bold; -fx-text-fill: #1a2a44;" text="1.0x" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+
+                  <!-- Message panel (bottom-right) -->
+                  <HBox fx:id="messagePanel" spacing="12.0" style="-fx-background-color: #e3f0fc; -fx-background-radius: 8; -fx-border-color: #b7cbe3; -fx-border-radius: 8; -fx-padding: 16;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-size: 34px;" text="🏁" />
+                        <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="messageTitle" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0d47a1;" text="Ready to race!" />
+                              <Label fx:id="messageBody" style="-fx-text-fill: #1a2a44;" text="Press Start to begin." wrapText="true" />
+                              <!-- Final results rows get added here by the controller -->
+                              <VBox fx:id="resultsBox" spacing="4.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+
+               </children>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</StackPane>
