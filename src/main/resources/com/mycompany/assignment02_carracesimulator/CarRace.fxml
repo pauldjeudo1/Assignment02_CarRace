@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
 
 <StackPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02_carracesimulator.CarRaceController">
    <children>
@@ -94,5 +95,15 @@
             </HBox>
          </bottom>
       </BorderPane>
+      <VBox fx:id="slideshowPane" alignment="CENTER" spacing="15.0" prefWidth="900.0" prefHeight="530.0"
+      style="-fx-background-color: #1b2a41;">
+         <children>
+            <Label fx:id="greetingLabel" text="Welcome to the Car Race!"
+                  style="-fx-text-fill: white; -fx-font-size: 34px; -fx-font-weight: bold;" />
+            <ImageView fx:id="slideImage" fitWidth="600.0" fitHeight="300.0" preserveRatio="true" />
+            <Label fx:id="slideCaption"
+                  style="-fx-text-fill: #ffd54f; -fx-font-size: 22px;" />
+         </children>
+      </VBox>
    </children>
 </StackPane>

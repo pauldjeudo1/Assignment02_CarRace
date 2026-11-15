@@ -22,6 +22,12 @@ import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.util.Duration;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 /**
  *
@@ -31,7 +37,13 @@ public class CarRaceController implements Initializable {
     private final CarRaceModel model = new CarRaceModel();
     private final List<CarNode> carNodes = new ArrayList<>();
     private final List<TranslateTransition> transitions = new ArrayList<>();
+    private static final double SLIDE_DELAY_SECONDS = 2.5;
+    private MediaPlayer mediaPlayer;   // must be a field, or it can be garbage collected mid-song
 
+    @FXML private VBox slideshowPane;
+    @FXML private Label greetingLabel;
+    @FXML private Label slideCaption;
+    @FXML private ImageView slideImage;
     @FXML private BorderPane racePane;
     @FXML private Button startButton;
     @FXML private Button pauseButton;
@@ -111,6 +123,7 @@ public class CarRaceController implements Initializable {
         buildTransitions();
         speedSlider.valueProperty().addListener((obs, oldV, newV)
             -> setSimulationSpeed(newV.doubleValue()));
+        startSlideshow();
     }
     
     /**
@@ -172,6 +185,50 @@ public class CarRaceController implements Initializable {
            node.setSpinRate(rate);
         }
         speedLabel.setText(String.format("%.1fx", rate));
+    }
+    
+    /**
+     * Plays the music and shows each car for a few seconds, then reveals the race screen.
+     */
+    private void startSlideshow() {
+        playMusic();
+        Timeline slideshow = new Timeline();
+        List<Car> cars = model.getCars();
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+            String imageFile = "/images/car" + (i + 1) + ".png";
+            slideshow.getKeyFrames().add(new KeyFrame(Duration.seconds(i * SLIDE_DELAY_SECONDS),
+                   e -> showSlide(car, imageFile)));
+        }
+        slideshow.getKeyFrames().add(new KeyFrame(Duration.seconds(cars.size() * SLIDE_DELAY_SECONDS),
+                e -> endSlideshow()));
+        slideshow.play();
+    }
+
+   /**
+     * Displays one car image and its caption.
+     * @param car the car being shown
+     * @param imageFile classpath location of the car's image
+     */
+    private void showSlide(Car car, String imageFile) {
+        slideImage.setImage(new Image(getClass().getResourceAsStream(imageFile)));
+        slideCaption.setText(String.format("Car #%02d - %s %s",
+                car.getNumber(), car.getColorName(), car.getType()));
+    }
+
+    private void endSlideshow() {
+        if (mediaPlayer != null) {
+           mediaPlayer.stop();
+        }
+        slideshowPane.setVisible(false);
+    }
+
+    private void playMusic() {
+        URL musicUrl = getClass().getResource("/audio/introSong.mp3");
+        if (musicUrl != null) {
+           mediaPlayer = new MediaPlayer(new Media(musicUrl.toExternalForm()));
+           mediaPlayer.play();
+        }
     }
     
 }
