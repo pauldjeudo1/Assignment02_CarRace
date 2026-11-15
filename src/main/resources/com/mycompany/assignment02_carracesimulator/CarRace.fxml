@@ -14,16 +14,16 @@
 
 <StackPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.assignment02_carracesimulator.CarRaceController">
    <children>
-      <BorderPane fx:id="racePane" prefHeight="480.0" prefWidth="900.0" style="-fx-background-color: #eef3f9;">
+      <BorderPane fx:id="racePane" prefHeight="530.0" prefWidth="900.0" style="-fx-background-color: #eef3f9;">
 
          <!-- ================= TRACK (900 x 300) ================= -->
          <center>
-            <Pane fx:id="trackPane" prefHeight="300.0" prefWidth="900.0" style="-fx-background-color: #2b3035;">
+            <Pane fx:id="trackPane" maxHeight="300.0" minHeight="300.0" prefHeight="300.0" prefWidth="900.0" style="-fx-background-color: #2b3035;">
                <children>
-                  <Label fx:id="startZone" alignment="CENTER" layoutX="-125.0" layoutY="125.0" prefHeight="51.0" prefWidth="301.0" rotate="270.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="S  T  A  R  T  I  N  G" textAlignment="CENTER" />
+                  <Label fx:id="startZone" alignment="CENTER" layoutX="-123.5" layoutY="124.5" prefHeight="51.0" prefWidth="299.0" rotate="270.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="S  T  A  R  T  I  N  G" textAlignment="CENTER" />
 
                   <!-- ARRIVAL zone -->
-                  <Label fx:id="arrivalZone" alignment="CENTER" layoutX="724.0" layoutY="125.0" prefHeight="51.0" prefWidth="301.0" rotate="90.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="A   R   R   I   V   A   L" textAlignment="CENTER" />
+                  <Label fx:id="arrivalZone" alignment="CENTER" layoutX="724.5" layoutY="124.5" prefHeight="51.0" prefWidth="299.0" rotate="90.0" style="-fx-background-color: #1b5e20; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="A   R   R   I   V   A   L" textAlignment="CENTER" />
 
                   <!-- Lane dividers (4 lanes x 75 px) -->
                   <Line endX="790.0" layoutX="55.0" layoutY="75.0" stroke="WHITE" strokeWidth="2.0" style="-fx-stroke-dash-array: 14 14;" />
@@ -71,7 +71,7 @@
                   </VBox>
 
                   <!-- Message panel (bottom-right) -->
-                  <HBox fx:id="messagePanel" spacing="12.0" style="-fx-background-color: #e3f0fc; -fx-background-radius: 8; -fx-border-color: #b7cbe3; -fx-border-radius: 8; -fx-padding: 16;" HBox.hgrow="ALWAYS">
+                  <HBox fx:id="messagePanel" maxHeight="230.0" minHeight="230.0" prefHeight="230.0" spacing="12.0" style="-fx-background-color: #e3f0fc; -fx-background-radius: 8; -fx-border-color: #b7cbe3; -fx-border-radius: 8; -fx-padding: 16;" HBox.hgrow="ALWAYS">
                      <children>
                         <VBox alignment="CENTER" prefHeight="122.0" prefWidth="426.0" HBox.hgrow="ALWAYS">
                            <children>
