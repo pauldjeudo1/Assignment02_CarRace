@@ -38,7 +38,7 @@ public class CarRaceController implements Initializable {
     private final List<CarNode> carNodes = new ArrayList<>();
     private final List<TranslateTransition> transitions = new ArrayList<>();
     private static final double SLIDE_DELAY_SECONDS = 2.5;
-    private MediaPlayer mediaPlayer;   // must be a field, or it can be garbage collected mid-song
+    private MediaPlayer mediaPlayer; 
 
     @FXML private VBox slideshowPane;
     @FXML private Label greetingLabel;
@@ -216,6 +216,9 @@ public class CarRaceController implements Initializable {
                 car.getNumber(), car.getColorName(), car.getType()));
     }
 
+    /**
+     * Stops the slideshow and shows the race car simulation screen
+     */
     private void endSlideshow() {
         if (mediaPlayer != null) {
            mediaPlayer.stop();
@@ -223,6 +226,9 @@ public class CarRaceController implements Initializable {
         slideshowPane.setVisible(false);
     }
 
+    /**
+     * Retrieves the mp3 file from resources and plays the song
+     */
     private void playMusic() {
         URL musicUrl = getClass().getResource("/audio/introSong.mp3");
         if (musicUrl != null) {

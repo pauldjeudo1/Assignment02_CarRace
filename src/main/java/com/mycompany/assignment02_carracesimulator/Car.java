@@ -32,12 +32,16 @@ public class Car {
         reset();
     }
     
-    /** Moves the car forward by speed * deltaSeconds. */
+    /** 
+     * Moves the car forward by speed * deltaSeconds. 
+     */
     public void advance(double deltaSeconds) {
         x += speed * deltaSeconds;
     }
 
-    /** Puts the car back on the start line. */
+    /** 
+     * Puts the car back on the start line. 
+     */
     public void reset() {
         x = startX;
         y = startY;

@@ -89,7 +89,9 @@ public class CarRaceModel {
         return finishOrder.size() == cars.size();
     }
 
-    /** First car in the finishing order, or null if nobody has finished. */
+    /** 
+     * First car in the finishing order, or null if nobody has finished. 
+     */
     public Car getWinner() {
         return finishOrder.isEmpty() ? null : finishOrder.get(0);
     }

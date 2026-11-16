@@ -113,6 +113,7 @@ public class CarNode extends Group {
 
     /**
      * Changes the speed of the wheel spinning animation using a speed multiplier
+     * @param rate the rate/speed of the spinning wheel
      */
     public void setSpinRate(double rate) {
         wheelSpin.setRate(rate);
