@@ -64,7 +64,6 @@ public class CarRaceController implements Initializable {
             messageTitle.setText("Race in progress...");
             messageBody.setText("The cars are racing to the finish line!");
             for (int i = 0; i < carNodes.size(); i++) {
-                // skip cars that already finished (play() would restart them)
                 if (!model.getFinishOrder().contains(carNodes.get(i).getCar())) {
                     transitions.get(i).play();   // starts, or resumes if paused
                     carNodes.get(i).startSpin();
@@ -119,7 +118,6 @@ public class CarRaceController implements Initializable {
             carNodes.add(node);
             trackPane.getChildren().add(node);
         }
-        
         buildTransitions();
         speedSlider.valueProperty().addListener((obs, oldV, newV)
             -> setSimulationSpeed(newV.doubleValue()));

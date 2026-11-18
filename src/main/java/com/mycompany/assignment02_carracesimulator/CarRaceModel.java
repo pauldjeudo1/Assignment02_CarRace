@@ -53,7 +53,7 @@ public class CarRaceModel {
     }
 
     /**
-     * @param the car
+     * @param car the car
      * @return the seconds the car needs to finish at its current speed. 
      */
     public double getRaceDurationSeconds(Car car) {
@@ -73,7 +73,7 @@ public class CarRaceModel {
 
     /**
      * Adds the car to the finishing order (ignored if already recorded).
-     * @param the car
+     * @param car the car
      */
     public void recordFinish(Car car) {
         if (!finishOrder.contains(car)) {

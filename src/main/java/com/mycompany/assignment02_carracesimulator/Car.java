@@ -33,24 +33,12 @@ public class Car {
     }
     
     /** 
-     * Moves the car forward by speed * deltaSeconds. 
-     */
-    public void advance(double deltaSeconds) {
-        x += speed * deltaSeconds;
-    }
-
-    /** 
      * Puts the car back on the start line. 
      */
     public void reset() {
         x = startX;
         y = startY;
         speed = baseSpeed;
-    }
-    
-    public void setPosition(double x, double y) {
-        this.x = x;
-        this.y = y;
     }
 
     public void setSpeed(double speed) {
