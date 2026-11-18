@@ -69,21 +69,37 @@ public class CarNode extends Group {
     }
 
     /**
-     * Adds a wheel plus a spoke (center to edge) that rotates so the spin is visible.
+     * Adds a wheel drawn as a circle with a black X inside it. The X
+     * rotates so the spin is visible.
      * @param centerX x coordinate of the wheel center
      */
     private void addWheel(double centerX) {
-        Circle wheel = new Circle(centerX, WHEEL_CENTER_Y, WHEEL_RADIUS, Color.DARKGRAY);
+        Circle wheel = new Circle(centerX, WHEEL_CENTER_Y, WHEEL_RADIUS, Color.GREY);
         wheel.setStroke(Color.BLACK);
         wheel.setStrokeWidth(3);
 
-        Line spoke = new Line(centerX, WHEEL_CENTER_Y, centerX + WHEEL_RADIUS - 2, WHEEL_CENTER_Y);
+        // the two diagonals of the X end exactly on the circle (45 degrees)
+        double offset = WHEEL_RADIUS * Math.cos(Math.PI / 4);
+        Line diagonal1 = new Line(centerX - offset, WHEEL_CENTER_Y - offset,
+                centerX + offset, WHEEL_CENTER_Y + offset);
+        Line diagonal2 = new Line(centerX - offset, WHEEL_CENTER_Y + offset,
+                centerX + offset, WHEEL_CENTER_Y - offset);
+        diagonal1.setStroke(Color.BLACK);
+        diagonal2.setStroke(Color.BLACK);
+        diagonal1.setStrokeWidth(2);
+        diagonal2.setStrokeWidth(2);
+
+        Group spokes = new Group(diagonal1, diagonal2);
         Rotate rotate = new Rotate(0, centerX, WHEEL_CENTER_Y);
-        spoke.getTransforms().add(rotate);
+        spokes.getTransforms().add(rotate);
+        
+        // hubs in the center, drawn on top of the spokes
+        Circle smallHub = new Circle(centerX, WHEEL_CENTER_Y, 1, Color.GREY);
+        Circle bigHub = new Circle(centerX, WHEEL_CENTER_Y, 3, Color.BLACK);
 
         wheelSpin.getKeyFrames().add(new KeyFrame(Duration.seconds(0.5),
                 new KeyValue(rotate.angleProperty(), 360, Interpolator.LINEAR)));
-        getChildren().addAll(wheel, spoke);
+        getChildren().addAll(wheel, spokes, bigHub, smallHub);
     }
 
     public Car getCar() {
