@@ -61,10 +61,6 @@ public class Car {
         return colorHex;
     }
 
-    public double getStartX() {
-        return startX;
-    }
-
     public double getBaseSpeed() {
         return baseSpeed;
     }

@@ -41,22 +41,14 @@ public class CarRaceController implements Initializable {
     private MediaPlayer mediaPlayer; 
 
     @FXML private VBox slideshowPane;
-    @FXML private Label greetingLabel;
     @FXML private Label slideCaption;
     @FXML private ImageView slideImage;
-    @FXML private BorderPane racePane;
-    @FXML private Button startButton;
-    @FXML private Button pauseButton;
-    @FXML private Button resetButton;
     @FXML private Slider speedSlider;
     @FXML private Label speedLabel;
-    @FXML private HBox messagePanel;
     @FXML private Label messageTitle;
     @FXML private Label messageBody;
     @FXML private VBox resultsBox;
     @FXML private Pane trackPane;
-    @FXML private Label startZone;
-    @FXML private Label arrivalZone;
 
     @FXML
     private void onStart(ActionEvent event) {
